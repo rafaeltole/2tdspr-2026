@@ -9,18 +9,15 @@ public class Main {
     static void main(String[] args) throws IOException {
         Partida partida = new Partida();
 
-        // --- Para cada partida atualizamos os dados do time da casa
-        partida.setTimeDaCasa("Santos");
+        partida.setTimeDaCasa("Palmeiras");
         partida.setGolsTimeDaCasa(3);
 
-        // --- Para cada partida atualizamos os dados do time visitante
-        partida.setTimeVisitante("Mirassol");
+        partida.setTimeVisitante("Flamengo");
         partida.setGolsTimeVisitante(1);
 
-        String linha = "Partida " + partida.getTimeDaCasa() + " " + partida.getGolsTimeDaCasa() + " X " //
-                + partida.getGolsTimeVisitante() + " " + partida.getTimeVisitante() + "\n";
+        String linha = "Partida " + partida.getTimeDaCasa() + " " + partida.getGolsTimeDaCasa() + " X " + partida.getGolsTimeVisitante() + " " + partida.getTimeVisitante() + "\n";
 
-        Path arquivo = Paths.get("src/partidas.txt");
+        Path arquivo = Paths.get("partidas.txt");
         if (Files.exists(arquivo)) {
             Files.writeString(arquivo, linha, StandardOpenOption.APPEND);
         } else {
