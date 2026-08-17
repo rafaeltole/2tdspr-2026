@@ -75,7 +75,8 @@ O modelo será evoluído nas próximas aulas conforme surgirem novas necessidade
 
 ## Aulas da semana
 
-- [Aula 01 — Primeira versão da aplicação](01-aula/)
+- [Aula 01 — Aplicação Java Standalone](01-aula/)
+- [Aula 02 — Aplicação REST Spring Web](02-aula/)
 
 ## Próxima etapa
 

@@ -1,4 +1,4 @@
-# Aula 01 — Primeira versão da aplicação
+# Java Advanced — Semana 1, aula 1
 
 Na introdução da semana, conhecemos o problema que orientará a evolução da nossa aplicação: registrar partidas, placares e a classificação dos times no Campeonato Brasileiro.
 
