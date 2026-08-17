@@ -152,18 +152,16 @@ Depois de formatar a linha, verifique se o arquivo existe. Se ele ainda não exi
 
 ```java
 Path arquivo = Paths.get("partidas.txt");
-        if (Files.exists(arquivo)) {
-            Files.writeString(arquivo, linha, StandardOpenOption.APPEND);
-        } else {
-            Files.writeString(arquivo, linha, StandardOpenOption.CREATE);
-        }
+if (Files.exists(arquivo)) {
+    Files.writeString(arquivo, linha, StandardOpenOption.APPEND);
+} else {
+    Files.writeString(arquivo, linha, StandardOpenOption.CREATE);
+}
 ```
 
 ### 7. Executar a aplicação
 
 Execute o método `main` pelo IntelliJ IDEA.
-
-<!-- Esta imagem pode ser substituída por código ou mantida para mostrar a execução na IDE. -->
 
 ![Execução da classe Main no IntelliJ IDEA](assets/05-executar-aplicacao.png)
 

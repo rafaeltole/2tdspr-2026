@@ -16,8 +16,9 @@ O material está organizado por semanas e aulas:
 
 ### Semana 1
 
-- [Aula 1 — Domínio e modelo de domínio](01-semana/01-aula/)
-- [Aula 2 — Aplicação SpringWeb](01-semana/02-aula/)
+- [Semana 1 — Domínio e modelo de domínio](01-semana)
+    - [Aula 1 — Aplicação Java Standalone](01-semana/01-aula/)
+    - [Aula 2 — Aplicação SpringWeb](01-semana/02-aula/)
 
 ## Tecnologias utilizadas
 
