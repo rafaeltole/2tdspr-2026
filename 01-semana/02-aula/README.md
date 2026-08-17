@@ -313,6 +313,10 @@ Nesta aula:
 - mapeamos operações CRUD para endpoints HTTP;
 - conhecemos as responsabilidades iniciais de Controller, Service e Repository.
 
+## 11. Branches
+
+- 02-exemplo-consultando-lista `CRUD consultando os dados de uma lista`
+
 ## Próxima evolução
 
 Na próxima etapa, poderemos substituir o armazenamento temporário por persistência em banco de dados, introduzir a camada Repository e melhorar os retornos HTTP e o tratamento de erros.
