@@ -315,7 +315,8 @@ Nesta aula:
 
 ## 11. Branches
 
-- 02-exemplo-consultando-lista `CRUD consultando os dados de uma lista`
+- 01-semana/02-aula/02-consultando-lista-partidas `CRUD manipulando dados de uma lista de partidas`
+- 01-semana/02-aula/03-modelo-camadas `Exemplo modelo em camadas consultando uma lista de partidas`
 
 ## Próxima evolução
 
