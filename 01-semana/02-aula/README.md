@@ -151,7 +151,19 @@ Selecione a dependência **Spring Web**. Ela fornece os componentes necessários
 
 O controller será o ponto de entrada das requisições HTTP relacionadas ao recurso `Partida`.
 
-![Criação do controller REST](assets/semana-02-aula/image10.png)
+```java
+package br.com.fiap.brasileirao;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/partidas")
+public class PartidaResource {
+
+    
+}
+```
 
 ### Anotações principais
 
@@ -168,7 +180,51 @@ O controller será o ponto de entrada das requisições HTTP relacionadas ao rec
 
 Implemente os métodos que receberão as requisições do CRUD de partidas.
 
-![Métodos do CRUD no controller](assets/semana-02-aula/image11.png)
+```java
+package br.com.fiap.brasileirao;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/partidas")
+public class PartidaResource {
+
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity cadastrar(@RequestBody Partida novaPartida) {
+        System.out.println("Cadastrando Partida ...");
+        return ResponseEntity.status(HttpStatus.CREATED.value()).build();
+    }
+
+    @PutMapping(path = "/{codigo}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity atualizar(@PathVariable Long codigo, @RequestBody Partida partida) {
+        System.out.println("Atualizando Partida [" + codigo + "]");
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Partida> consultar() {
+        System.out.println("Consultando Partida ...");
+
+        Partida partida = new Partida();
+        partida.setTimeDaCasa("Time da Casa");
+        partida.setGolsTimeDaCasa(2);
+
+        partida.setTimeVisitante("Time Visitante");
+        partida.setGolsTimeVisitante(1);
+
+        return ResponseEntity.ok(partida);
+    }
+
+    @DeleteMapping(path = "/{codigo}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity excluir(@PathVariable Long codigo) {
+        System.out.println("Excluindo Partida [" + codigo + "]");
+        return ResponseEntity.noContent().build();
+    }
+}
+```
 
 > Nesta primeira versão, o objetivo é compreender o fluxo HTTP e o mapeamento das requisições. Persistência, validações e tratamento completo de erros serão incorporados durante a evolução da aplicação.
 
@@ -186,19 +242,19 @@ Envie uma requisição `POST` para `/partidas`, informando a partida em JSON no 
 
 ### 7.2 Atualizar uma partida
 
-Envie uma requisição `PUT` para `/partidas/{id}` com os dados atualizados.
+Envie uma requisição `PUT` para `/partidas/{codigo}` com os dados atualizados.
 
 ![Atualização de uma partida](assets/semana-02-aula/image14.png)
 
 ### 7.3 Consultar uma partida
 
-Envie uma requisição `GET` para `/partidas/{id}`.
+Envie uma requisição `GET` para `/partidas/{codigo}`.
 
 ![Consulta de uma partida](assets/semana-02-aula/image15.png)
 
 ### 7.4 Excluir uma partida
 
-Envie uma requisição `DELETE` para `/partidas/{id}`.
+Envie uma requisição `DELETE` para `/partidas/{codigo}`.
 
 ![Exclusão de uma partida](assets/semana-02-aula/image16.png)
 
