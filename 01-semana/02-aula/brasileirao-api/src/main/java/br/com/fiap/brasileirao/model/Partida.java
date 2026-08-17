@@ -1,12 +1,24 @@
-package br.com.fiap.brasileirao;
+package br.com.fiap.brasileirao.model;
+
+import java.util.Objects;
 
 public class Partida {
+
+    private Long codigo;
 
     private String timeDaCasa;
     private String timeVisitante;
 
     private Integer golsTimeDaCasa;
     private Integer golsTimeVisitante;
+
+    public Long getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Long codigo) {
+        this.codigo = codigo;
+    }
 
     public String getTimeDaCasa() {
         return timeDaCasa;
@@ -50,4 +62,15 @@ public class Partida {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Partida partida = (Partida) o;
+        return Objects.equals(codigo, partida.codigo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(codigo);
+    }
 }
