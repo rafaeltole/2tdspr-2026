@@ -12,5 +12,5 @@ Nesta segunda semana, desenvolveremos uma API REST para o gerenciamento de aluno
 
 ## Aulas da semana
 
-* [Semana 2 | Aula 1 — Aplicação REST com Spring Web](01-aula/)
-* [Semana 2 | Aula 2 — Aplicação REST com Spring Data JPA](02-aula/)
+* [Semana 2 | Aula 1 — Aplicação REST com Spring Web](03-aula/)
+* [Semana 2 | Aula 2 — Aplicação REST com Spring Data JPA](04-aula/)
