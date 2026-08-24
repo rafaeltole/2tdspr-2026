@@ -1,9 +1,19 @@
-package br.com.fiap;
+package br.com.fiap.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Aluno {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
+
     private String rm;
+
     private String nome;
 
     public Long getCodigo() {
