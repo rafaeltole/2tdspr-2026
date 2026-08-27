@@ -1,9 +1,7 @@
 package br.com.fiap.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Aluno {
@@ -12,8 +10,12 @@ public class Aluno {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
 
+    @Column(nullable = false)
+    @NotBlank(message = "O rm deve ser informado")
     private String rm;
 
+    @Column(nullable = false)
+    @NotBlank(message = "O nome deve ser informado")
     private String nome;
 
     public Long getCodigo() {

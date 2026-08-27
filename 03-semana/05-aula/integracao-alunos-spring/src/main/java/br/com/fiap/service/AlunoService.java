@@ -1,5 +1,6 @@
 package br.com.fiap.service;
 
+import br.com.fiap.dto.AlunoRequest;
 import br.com.fiap.entity.Aluno;
 import br.com.fiap.exception.AlunoNaoEncontradoException;
 import br.com.fiap.repository.AlunoRepository;
@@ -18,8 +19,9 @@ public class AlunoService {
         this.alunoRepository = alunoRepository;
     }
 
-    public void cadastrar(Aluno novoAluno) {
-        alunoRepository.save(novoAluno);
+    public void cadastrar(AlunoRequest alunoRequest) {
+        Aluno aluno =  alunoRequest.toEntity();
+        alunoRepository.save(aluno);
     }
 
     public Iterable<Aluno> consultar() {

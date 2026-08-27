@@ -1,7 +1,9 @@
 package br.com.fiap.controller;
 
+import br.com.fiap.dto.AlunoRequest;
 import br.com.fiap.entity.Aluno;
 import br.com.fiap.service.AlunoService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +22,7 @@ public class AlunoResource {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity cadastrar(@RequestBody Aluno novoAluno) {
+    public ResponseEntity cadastrar(@Valid @RequestBody AlunoRequest novoAluno) {
         alunoService.cadastrar(novoAluno);
         return ResponseEntity.status(HttpStatus.CREATED.value()).build();
     }
