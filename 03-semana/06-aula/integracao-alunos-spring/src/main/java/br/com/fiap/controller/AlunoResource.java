@@ -1,6 +1,7 @@
 package br.com.fiap.controller;
 
 import br.com.fiap.dto.AlunoRequest;
+import br.com.fiap.dto.AlunoResponse;
 import br.com.fiap.entity.Aluno;
 import br.com.fiap.service.AlunoService;
 import jakarta.validation.Valid;
@@ -21,34 +22,34 @@ public class AlunoResource {
         this.alunoService = alunoService;
     }
 
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity cadastrar(@Valid @RequestBody AlunoRequest novoAluno) {
-        alunoService.cadastrar(novoAluno);
-        return ResponseEntity.status(HttpStatus.CREATED.value()).build();
+    @PostMapping
+    public ResponseEntity<AlunoResponse> cadastrar(@Valid @RequestBody AlunoRequest novoAluno) {
+        AlunoResponse alunoResponse = alunoService.cadastrar(novoAluno);
+        return ResponseEntity.status(HttpStatus.CREATED.value()).body(alunoResponse);
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Iterable<Aluno>> consultar() {
-        Iterable<Aluno> alunosCadastrados = alunoService.consultar();
+    public ResponseEntity<List<AlunoResponse>> consultar() {
+        List<AlunoResponse> alunosCadastrados = alunoService.consultar();
         return ResponseEntity.ok(alunosCadastrados);
     }
 
     @GetMapping(path = "/{codigo}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Aluno> consultarPorCodigo(@PathVariable Long codigo) {
-        Aluno aluno = alunoService.consultarPorCodigo(codigo);
-        return ResponseEntity.ok(aluno);
+    public ResponseEntity<AlunoResponse> consultarPorCodigo(@PathVariable Long codigo) {
+        AlunoResponse alunoResponse = alunoService.consultarPorCodigo(codigo);
+        return ResponseEntity.ok(alunoResponse);
     }
 
     @GetMapping(params = "nome", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Aluno>> consultarPorNome(@RequestParam String nome) {
-        List<Aluno> alunosCadastrados = alunoService.consultarPorNome(nome);
+    public ResponseEntity<List<AlunoResponse>> consultarPorNome(@RequestParam String nome) {
+        List<AlunoResponse> alunosCadastrados = alunoService.consultarPorNome(nome);
         return ResponseEntity.ok(alunosCadastrados);
     }
 
     @PutMapping(path = "/{codigo}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity atualizar(@PathVariable Long codigo, @RequestBody Aluno aluno) {
-        alunoService.atualizar(codigo, aluno);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<AlunoResponse> atualizar(@PathVariable Long codigo, @RequestBody Aluno aluno) {
+        AlunoResponse alunoResponse = alunoService.atualizar(codigo, aluno);
+        return ResponseEntity.ok(alunoResponse);
     }
 
     @DeleteMapping(path = "/{codigo}")

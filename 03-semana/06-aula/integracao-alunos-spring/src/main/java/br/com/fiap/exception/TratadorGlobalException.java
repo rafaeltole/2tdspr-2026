@@ -20,8 +20,16 @@ public class TratadorGlobalException {
         return problemDetail;
     }
 
+    @ExceptionHandler(RmJaCadastradoException.class)
+    public ProblemDetail tratar(RmJaCadastradoException e) {
+        ProblemDetail problemDetail = ProblemDetail.forStatus(HttpStatus.BAD_REQUEST);
+        problemDetail.setTitle("O RM informado pertence a outro aluno");
+        problemDetail.setDetail(e.getMessage());
+        return problemDetail;
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ProblemDetail tratar(MethodArgumentNotValidException  e) {
+    public ProblemDetail tratar(MethodArgumentNotValidException e) {
         Map<String, String> campos = new HashMap<>();
 
         e.getFieldErrors().forEach(erro -> {
