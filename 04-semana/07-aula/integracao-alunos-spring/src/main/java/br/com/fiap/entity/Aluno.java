@@ -4,6 +4,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
+import java.util.List;
 
 @Entity
 public class Aluno {
@@ -15,6 +18,9 @@ public class Aluno {
     private String rm;
 
     private String nome;
+
+    @OneToMany(mappedBy = "aluno")
+    private List<Matricula> matriculas;
 
     public Long getCodigo() {
         return codigo;
